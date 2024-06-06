@@ -15,7 +15,7 @@ setup:
     sudo apt install jenkins -y
     sudo systemctl start jenkins
     sudo systemctl enable jenkins
-   and the jenkins server is exposed on port 8080 by default. Make sure to keep the port open on the virtual machine and on firewall if any.
+   and the jenkins server is exposed on port 8080 by default. Make sure to keep the port open on the virtual machine and on firewall if any
    
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/685691ab-91d0-4b55-9644-a64d40d6cab1)
    
