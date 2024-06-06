@@ -85,11 +85,18 @@ steps to configure the sonarqube server in Jenkins:
 ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/18453c27-699a-4f54-a388-16b5421b7082)
 
 
-   
+
 Nexus repository: Nexus Repository is a repository manager that stores, manages, and distributes software artifacts required for development, deployment, and provisioning. It supports various artifact formats like Maven, npm, Docker, and more, and can proxy external repositories like maven central, docker hub to cache artifacts locally, improving build performance and reliability. 
 
 setup: (running the nexus repository as docker container on the same jenkins server)
 ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/2fa47874-3080-4559-90f2-84d88a043b0b)
+![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/a689df50-0ca5-4c25-b3d4-7e0c2978f2f1)
+
+steps to configure the nexus repository for to use in te jenkins pipeline:
+1. update the maven project pom.xml file with <distributionmanagement> tags and provide the maven-releases and maven-snapshots url's
+   
+
+
 
 
 
