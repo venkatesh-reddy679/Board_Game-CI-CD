@@ -96,6 +96,9 @@ steps to configure the nexus repository for to use in te jenkins pipeline:
 1. update the maven project pom.xml file with "distributionmanagement" tag and provide the maven-releases and maven-snapshots url's
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/71fae80b-482d-4e11-8027-c1edb777a60a)
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/f1849c52-522f-450a-a10e-5ce1710cd939)
+2. create a maven setting.xml file to provide the credentials for these repositories (this is why we installed config file provider plugin).
+    go to manage jenkins -> managed files -> Add a new config -> select maven setting.xml (provide a valid name)
+   
 
    
 
