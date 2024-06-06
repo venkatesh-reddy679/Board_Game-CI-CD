@@ -4,7 +4,9 @@ setup:
 1. Install the required version of java as jenkins is built in java and run on Java Virtual Machine (JVM)
     sudo apt update
     sudo apt -get install openjdk-17-jdk
+   
     ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/c01b7211-ebb6-47fb-8871-4a9954220068)
+   
 2. Install jenkins
     sudo apt install apt-transport-https -y
     wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo apt-key add -
@@ -14,8 +16,11 @@ setup:
     sudo systemctl start jenkins
     sudo systemctl enable jenkins
    and the jenkins server is exposed on port 8080 by default. Make sure to keep the port open on the virtual machine and on firewall if any.
+   
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/685691ab-91d0-4b55-9644-a64d40d6cab1)
+   
    retrieve the password from the given file, proceed with installation of required plugins, and create first admin user.
+   
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/63a27b55-b43a-4414-80e2-01189d9d880f)
 
 
