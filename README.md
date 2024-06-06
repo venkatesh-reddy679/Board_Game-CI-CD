@@ -38,7 +38,7 @@ setup:
     6. echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     7. sudo apt-get update
     8. sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-    9. 
+       
     ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/3b500ba5-53ad-458b-bb86-69afb39809cc)
 
     to enable any user like jenkins user to run the docker commands as the root user, like creating containers, deleting containers, etc.
@@ -97,11 +97,18 @@ steps to configure the nexus repository for to use in te jenkins pipeline:
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/71fae80b-482d-4e11-8027-c1edb777a60a)
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/f1849c52-522f-450a-a10e-5ce1710cd939)
 2. create a maven setting.xml file to provide the credentials for these repositories (this is why we installed config file provider plugin).
-    go to manage jenkins -> managed files -> Add a new config -> select maven setting.xml (provide a valid name)
-   
+    go to manage jenkins -> managed files -> Add a new config -> select maven setting.xml (provide a valid name) -> in content section, scroll to servers and update the credentials accordingly. (credentials are same as nexus)
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/19038569-870e-4c22-904c-4196b5c79dc7)
 
-   
 
+
+Slave machine:
+1. create a virtual machine, install docker and run "chmod 666 /var/run/docker.sock" as root user that enables any user to run docker commands.
+   Generate ssh key pair using "ssh-keygen -t rsa" command, copy the public key and store it in .ssh/authorized_keys file.
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/3d4eeafc-a42d-496c-ac3f-1adb4fa2de9e)
+
+2. copy the private key and store it in the jenkins server as a global credentials as "SSH username with private key"
+    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/4783be58-320a-43d4-8f64-958ee654b62a)
 
 
 
