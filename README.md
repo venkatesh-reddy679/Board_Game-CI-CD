@@ -36,7 +36,40 @@ setup:
     to enable any user like jenkins user to run the docker commands as the root user, like creating containers, deleting containers, etc.
     ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/869cae3c-fadf-4474-842c-9336eaff5dff)
 
-Create docker image using the given insctruc
+Install the below mentioned plugins . go to manage jenkins -> plugins -> available plugins
+1. eclipse temurian installer (for installing and using the required version of jdk on agent)
+2. config file provider (required to create a maven setting.xml file for deploying the build artifact to the nexus repository)
+3. sonarqube-scanner (tool to perform automatic code review)
+4. docker
+5. docker pipeline
+6. kubernetes
+7. kubentetes CLI
+8. pipeline maven intgration
+9. maven integration
+to use the third-party tools installed as plugins in the jenkins pipelines, Configure the installed plugins as tools in manage jenkins -> tools
+![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/c79dfd71-ef86-4a5e-baea-ec333f80c62d)
+![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/5e50bcdd-d374-43f1-a251-2eecd60e32cc)
+![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/4b1e0c71-063f-4a50-ad76-5de8442f4eac)
+![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/d285e870-40c7-48bc-8730-c223e7b7a71b)
+
+
+SonarQube:SonarQube is an open-source platform used for continuous inspection of code quality through static code analysis, detecting bugs, code smells, and security vulnerabilities across more than 25 programming languages. It provides detailed metrics and reports, integrates seamlessly with CI/CD tools like Jenkins, and allows customization of coding rules to enforce standards. By using SonarQube, development teams can improve code quality, maintainability, and security, receive continuous feedback, and ensure compliance with coding best practices, making it an essential tool for maintaining high standards in software development projects.
+
+Sonarqube-scanner plugin performs the code quality analysis, generates the reports, and publish the reports to the configured sonarqube server.
+
+setup: (running the sonarqube server on the same jenkins server as a docker container and publishing the service on port 9000 of the host)
+![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/14e01a58-5c9d-4b53-9dcc-9a15f61d6e68)
+![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/efbbf27c-0e65-4951-900f-b7a78574644a)
+default username: admin && default password: admin
+
+
+
+
+
+
+
+
+
 
  
 
