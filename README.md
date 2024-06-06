@@ -93,7 +93,10 @@ setup: (running the nexus repository as docker container on the same jenkins ser
 ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/a689df50-0ca5-4c25-b3d4-7e0c2978f2f1)
 
 steps to configure the nexus repository for to use in te jenkins pipeline:
-1. update the maven project pom.xml file with <distributionmanagement> tags and provide the maven-releases and maven-snapshots url's
+1. update the maven project pom.xml file with "distributionmanagement" tag and provide the maven-releases and maven-snapshots url's
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/71fae80b-482d-4e11-8027-c1edb777a60a)
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/f1849c52-522f-450a-a10e-5ce1710cd939)
+
    
 
 
