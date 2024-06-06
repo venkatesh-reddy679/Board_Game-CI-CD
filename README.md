@@ -36,6 +36,8 @@ setup:
     to enable any user like jenkins user to run the docker commands as the root user, like creating containers, deleting containers, etc.
     ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/869cae3c-fadf-4474-842c-9336eaff5dff)
 
+Create docker image using the given insctruc
+
  
 
 
