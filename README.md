@@ -103,12 +103,18 @@ steps to configure the nexus repository for to use in te jenkins pipeline:
 
 
 Slave machine:
-1. create a virtual machine, install docker and run "chmod 666 /var/run/docker.sock" as root user that enables any user to run docker commands.
+1. create a virtual machine, install java version same as on jenkins server, install docker and run "chmod 666 /var/run/docker.sock" as root user that enables any user to run docker commands.
    Generate ssh key pair using "ssh-keygen -t rsa" command, copy the public key and store it in .ssh/authorized_keys file.
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/3d4eeafc-a42d-496c-ac3f-1adb4fa2de9e)
 
 2. copy the private key and store it in the jenkins server as a global credentials as "SSH username with private key"
     ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/4783be58-320a-43d4-8f64-958ee654b62a)
+3. go to manage jenkins -> nodes -> add new node
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/12ee09f1-c02b-4f8c-961f-cd2898b4a66a)
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/f80c3934-032e-4b31-afb6-e0b94bab2aa0)
+
+   
+
 
 
 
