@@ -23,6 +23,21 @@ setup:
    
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/63a27b55-b43a-4414-80e2-01189d9d880f)
 
+3. Install Docker on the same jenkins server which we use as an agent for running the pipelines.
+    1. sudo apt-get update
+    2. sudo apt-get install ca-certificates curl
+    3. sudo install -m 0755 -d /etc/apt/keyrings
+    4. sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+    5. sudo chmod a+r /etc/apt/keyrings/docker.asc
+    6. echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    7. sudo apt-get update
+    8. sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/3b500ba5-53ad-458b-bb86-69afb39809cc)
+    to enable any user like jenkins user to run the docker commands as the root user, like creating containers, deleting containers, etc.
+    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/869cae3c-fadf-4474-842c-9336eaff5dff)
+
+ 
+
 
    
 
