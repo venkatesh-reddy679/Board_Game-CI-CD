@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: boardgame
-  replicas: 2 # Number of replicas that will be created for this deployment
+  replicas: 3 # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: boardgame
-          image: adijaiswal/boardgame:latest # Image that will be used to containers in the cluster
+          image:  venkateshreddy679/board-game:0# Image that will be used to containers in the cluster
           imagePullPolicy: Always
           ports:
             - containerPort: 8080 # The port that the container is running on in the cluster
