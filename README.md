@@ -119,6 +119,8 @@ Installing Trivy on slave machine:
 
 Trivy is an open-source vulnerability scanner used to detect the known vulnerabilities in various components of software development such as docker images, file systems, git repositories and kubernetes clusers. It help us ensure that software is developed deployed with no existing issues.
 
+Jenkins doesn't provide any default plugin for trivy, so we have to manually install it on agent machine.
+
 commands to install trivy:
 1. sudo apt-get install wget apt-transport-https gnupg lsb-release
 2. wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
@@ -140,13 +142,42 @@ Setting up the jenkins pipeline for continuous Integration:
 ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/2eda3ece-f883-4440-b52f-92bc9ba9c871)
 
 
-3. add the stages for cloning the git repository, compiling the source code, testing the compiled source code, and packaging the project to a jar file
+3. Stages for cloning the git repository, compiling the source code, testing the compiled source code, and packaging the project to a jar file
 
 ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/7ca40a7b-9094-4b48-ab04-cc7d3fe2f77f)
 
    make sure to update the version tag in pom.xml to get dynamic version for the build artifact using the current build number
 
 ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/ca697bd1-7617-46c1-83d7-5b4bc1698d30)
+
+
+4. Stage to scan the directory after cloning the git repository for any known vulenrabilities using trivy that writes the output in table format to a file specified in -o flag and . represents current directory
+
+![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/c03a3164-6d2d-4c11-918a-8706a5cdcfac)
+
+
+5. Stage for code quality check and quality gate
+   
+withSonarQubeEnv('sonarqube-server') block sets up the environemnt for sonarqube code quality analysis where  "sonarqube-server" is the name with which the sonarqube server is configured in jenkins. The maven command "mvn sonar:sonar" triggers the SonarQube analysis for a Maven-based project, sending the analysis data to a SonarQube server.
+
+A Quality Gate in sonarqube server is a set of conditions that a project must meet to be considered of acceptable quality. It is a way to enforce a minimum standard of quality before changes are integrated into the main codebase. These conditions can include metrics like code coverage, number of bugs, code smells, duplications, and other issues.
+
+![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/5e4c8999-ad0f-45fb-bf38-8df5dc5d4a61)
+
+"sonar way" is the default quality gate our project points to. we can a new quality gate with different coverage level by clicking on create button. To set our project to use a customized quality gate, got to project -> project settings -> quality gate -> always use a specific quality gate -> choose the gate
+
+![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/6556d90a-e0a9-46d8-86e0-bf17c6e86b5f)
+
+"waitForQualityGate" step waits until the sonarqube analysis is completed and sonarqube server send the quality gate status to jenkins server  using the webhook that we set on sonarqube server and "abortPipeline: true" will abort the pipeline if the quality gate is failed.
+
+It is a good practice to wrap "waitForQualityGate" in a "timeout" block to prevent the build from waiting indefinitely in case of issues with SonarQube analysis. The timeout block will limit the maximum time the build waits for the Quality Gate status. If the timeout expires before the quality gate status is received, the pipeline will throw a timeout error. If the quality gate status is received before the timeout expired, waitForQualityGate will be passed and pipeline execution will be resumed.
+
+![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/e1f46ae7-affe-4248-ae8d-cfe80c1ea0cd)
+
+   
+   
+
+
 
    
 
