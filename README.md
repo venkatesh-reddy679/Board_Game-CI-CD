@@ -113,6 +113,35 @@ Slave machine:
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/12ee09f1-c02b-4f8c-961f-cd2898b4a66a)
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/f80c3934-032e-4b31-afb6-e0b94bab2aa0)
 
+
+
+Installing Trivy on slave machine:
+
+Trivy is an open-source vulnerability scanner used to detect the known vulnerabilities in various components of software development such as docker images, file systems, git repositories and kubernetes clusers. It help us ensure that software is developed deployed with no existing issues.
+
+commands to install trivy:
+1. sudo apt-get install wget apt-transport-https gnupg lsb-release
+2. wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
+3. echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
+4. sudo apt-get update
+5. sudo apt-get install -y trivy
+
+![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/3fa2a8d8-ef9a-4f9e-b01e-85f366867b6c)
+
+
+Setting up the jenkins pipeline for continuous Integration:
+
+1. click on new item and select pipeline as type of jenkins job
+
+![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/3766cfa2-3343-4e82-b35c-c29a7fc7b6d0)
+
+2. setting the agent to run the pipeline
+
+![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/d1aaa4c7-70b0-463d-9dd4-a6b188c5e829)
+
+   
+
+
    
 
 
