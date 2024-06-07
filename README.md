@@ -174,6 +174,21 @@ It is a good practice to wrap "waitForQualityGate" in a "timeout" block to preve
 
 ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/e1f46ae7-affe-4248-ae8d-cfe80c1ea0cd)
 
+6. Stage to deploy the generated build atrifact to nexus repository.
+   mvn deploy command is used to deploy the build artifat to the remote reposiory.
+   we created a maven settings.xml file using config file provider plugin and defined credentials for nexus maven-releases and maven-snapshots repositories. 
+   withMaven block sets up the maven environment that authenticates jenkins user with nexus repositories using those credentials which enables jenkins pipeline to deploy the artifact
+
+![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/d54cd229-6150-42df-ba80-98befa6a65c9)
+
+7. Stage to build docker image, scan the docker image using trivy and push the docker image to the docker hub repositoty. Create a global credential of type username and password in the jenkins server with docker username and password for authentication with docker hub. 
+
+![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/d903eea9-2df1-4d65-a418-60f8f23b3b11)
+![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/3332240f-c362-46e7-8479-6e15e5d17c1d)
+
+
+
+
    
    
 
