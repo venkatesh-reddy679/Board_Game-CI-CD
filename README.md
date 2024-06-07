@@ -131,6 +131,11 @@ commands to install trivy:
 ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/3fa2a8d8-ef9a-4f9e-b01e-85f366867b6c)
 
 
+
+
+
+
+
 Setting up the jenkins pipeline for continuous Integration:
 
 1. click on new item and select pipeline as type of jenkins job
