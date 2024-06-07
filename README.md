@@ -135,17 +135,18 @@ Setting up the jenkins pipeline for continuous Integration:
 
 ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/3766cfa2-3343-4e82-b35c-c29a7fc7b6d0)
 
-2. setting the agent to run the pipeline
+2. setting the agent to run the pipeline, and use the tools block to define the tools that we installed as third-party plugins to use in this pipeline
 
-![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/d1aaa4c7-70b0-463d-9dd4-a6b188c5e829)
+![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/2eda3ece-f883-4440-b52f-92bc9ba9c871)
+
 
 3. add the stages for cloning the git repository, compiling the source code, testing the compiled source code, and packaging the project to a jar file
 
-   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/7ca40a7b-9094-4b48-ab04-cc7d3fe2f77f)
+![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/7ca40a7b-9094-4b48-ab04-cc7d3fe2f77f)
 
    make sure to update the version tag in pom.xml to get dynamic version for the build artifact using the current build number
 
-   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/ca697bd1-7617-46c1-83d7-5b4bc1698d30)
+![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/ca697bd1-7617-46c1-83d7-5b4bc1698d30)
 
    
 
