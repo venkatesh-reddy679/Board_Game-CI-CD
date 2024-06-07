@@ -205,6 +205,51 @@ It is a good practice to wrap "waitForQualityGate" in a "timeout" block to preve
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+Setting up the infrastructure for continuous delivery:
+
+we aim to deploy the application to a 2 node kubernetes cluster (master and worker). excute the commands accordingly
+
+refer to official kubernetes documentation at https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
+
+1. Install containerD as runtime on both master and worker nodes
+
+   cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+
+   net.ipv4.ip_forward = 1
+
+   EOF
+   
+   sudo sysctl --system
+
+   sysctl net.ipv4.ip_forward
+
+   sudo apt-get update
+
+   sudo apt-get install ca-certificates curl
+
+   sudo install -m 0755 -d /etc/apt/keyrings
+
+   sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+
+   sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+   echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo t>
+
+   sudo apt-get update
+
+   sudo apt-get install containerd.io
+
+   open /etc/containerd/config.toml file and remove everything, then put the below given lines 
+
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/7ecaed12-20b2-4585-9714-452567db963c)
+
+
+   restart containerD systemctl restart containerd
+
+2. Install kubeadm, kubectl and kubelet on all machines
+
+   
+   
 
 
 
