@@ -143,7 +143,9 @@ Setting up the jenkins pipeline for continuous Integration:
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/7ca40a7b-9094-4b48-ab04-cc7d3fe2f77f)
 
-   make sure to update the tag in pom.xml to get dynamic name for the build artifact using the specific build number
+   make sure to update the tag in pom.xml to get dynamic name for the build artifact using the current build number
+   
+
 
    
 
