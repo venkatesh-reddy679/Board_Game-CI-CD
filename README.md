@@ -139,9 +139,11 @@ Setting up the jenkins pipeline for continuous Integration:
 
 ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/d1aaa4c7-70b0-463d-9dd4-a6b188c5e829)
 
-3. add the stages for compiling the source code, testing the compiled source code, and packaging the project t a jasr file
+3. add the stages for cloning the git repository, compiling the source code, testing the compiled source code, and packaging the project to a jar file
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/7ca40a7b-9094-4b48-ab04-cc7d3fe2f77f)
+
+   make sure to update the tag in pom.xml to get dynamic name for the build artifact using the specific build number
 
    
 
