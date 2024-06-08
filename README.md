@@ -207,9 +207,9 @@ It is a good practice to wrap "waitForQualityGate" in a "timeout" block to preve
 
 Setting up the infrastructure for continuous delivery:
 
-we aim to deploy the application to a 2 node kubernetes cluster (master and worker). excute the commands accordingly
+we aim to deploy the application to a 2 node kubernetes cluster (master and worker). follow the steps to setup 2 node kubernetes cluster
 
-refer to official kubernetes documentation at https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
+refer to the official kubernetes documentation at https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
 
 1. Install containerD as runtime on both master and worker nodes
 
@@ -233,7 +233,7 @@ refer to official kubernetes documentation at https://kubernetes.io/docs/setup/p
 
    sudo chmod a+r /etc/apt/keyrings/docker.asc
 
-   echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo t>
+   echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
    sudo apt-get update
 
@@ -244,9 +244,59 @@ refer to official kubernetes documentation at https://kubernetes.io/docs/setup/p
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/7ecaed12-20b2-4585-9714-452567db963c)
 
 
-   restart containerD systemctl restart containerd
+   systemctl restart containerd
 
 2. Install kubeadm, kubectl and kubelet on all machines
+
+   sudo apt-get update
+
+   sudo apt-get install -y apt-transport-https ca-certificates curl gpg
+
+   curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.30/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+
+   echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.30/deb/ /' | sudo tee
+   /etc/apt/sources.list.d/kubernetes.list
+
+   sudo apt-get update
+
+   sudo apt-get install -y kubelet kubeadm kubectl
+
+   sudo apt-mark hold kubelet kubeadm kubectl
+
+   sudo systemctl enable --now kubelet
+
+3. run kubeadm init command only on master node with appropriaate pod network and address to expose the kube-apiserver. By default, kube-apiserver is exposed on port 6443 of the master node. run "ip addr" on the control plane to find the ip address assigned to primary netwok interface
+
+   kubeadm init  --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=10.182.0.29(master node ip address) and output like
+
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/831458cf-39ff-47c7-882e-35de0c7ef3ae)
+
+   once the control-plane is initiated, to start using the cluster, run the given commands as regular user
+
+    mkdir -p $HOME/.kube
+
+    sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+
+    sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+    then run the kubeamd join command on the worker nodes to join in the cluster
+
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/4db6160f-4a84-4f86-88e7-0abbbc58f2a2)
+
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/c792e048-d564-432e-b9b8-f8a5564a392e)
+
+4. Find a suitable pod networking solution from https://kubernetes.io/docs/concepts/cluster-administration/addons/ and implement it in the cluster. Using flannel networkig solution for pod network in this project.
+
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/c933ad10-a73a-423f-bda6-027d26468d7e)
+
+
+   
+
+
+
+
+   
+   
 
    
    
