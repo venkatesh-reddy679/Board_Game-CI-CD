@@ -340,6 +340,19 @@ Authentication and Authorization in kubernetes cluster:
 
 Setting up the pipeline for continuous delivery:
 
+1. stage to authenticate with kube-apiserver or kubernetes cluster that is exposed on port 6443 of he control-plane or master node and deploy resources in the dedicated namespace.
+
+   We create 3 resources using deployment-service.yaml file
+
+   1. secret (type = docker-registry): By default, the underlying container runtime pull the image from docker.io/library which is a default account to create a deployment or pod. If we want to create resources using a custome image that is built and pushed to a private docker reposiory, container runtime need the credentials to authenticate itself with docker and pull the image. So, we create a secret that contains authenticatin  data and pass it to the deployment or to the pod under "ImagePullSecrets" tag. to generate YAML of the secret, use the below given comand and use it in  your YAML file.
+
+      ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/f8604424-0c90-438c-8c65-9f7b3dc502c2)
+
+   2. deployment: deployment is the highest deployable resource in kubernetes that internally creates a replicaset that is actually responsible for  maintaining the desired number of pod replicas all the time.
+  
+   3. service (type = load balancer): service is a resource that is used to establish a stabe communication between pods and external network.
+      
+
 
 
 
