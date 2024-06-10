@@ -314,9 +314,9 @@ Authentication and Authorization in kubernetes cluster:
    
 3. create a role wth necessary permissions and bind it to the service account using role binding  to authorize jekins with kube-apiserver to do the deployments in the kuberetes cluster.
 
-   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/1ad6e242-9532-4b55-a2e7-8e26a2d90f25)
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/32b105f6-f514-4385-90e8-45d754f483a1)
 
-   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/3c693db6-67ec-418c-a58f-f7d7c4801b5e)
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/f1fbbf15-c59d-4662-86d4-394188e8a285)
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/7b742bcf-0193-4729-a404-21dc20001144)
 
