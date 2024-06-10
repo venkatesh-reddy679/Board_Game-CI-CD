@@ -340,6 +340,31 @@ Authentication and Authorization in kubernetes cluster:
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/f8604424-0c90-438c-8c65-9f7b3dc502c2)
 
+8. install Kubeaudit
+
+   kubeaudit is a command line tool used to audit kubernetes clusters for security compliance. It helps us identity potential security isues and misconfigurations in kubernetes resources.
+
+   common check the kubeaudit tool performs:
+
+    Pods:
+   
+      1. checks if any pods are running wih elevated privilages
+         
+      2. checks is any container inside pod are running as root user
+      
+      3. checks if security contexts are configured properly
+
+    Network Policies: audits network policies to ensure proper isolation and access controls across different resources in cluster
+
+    resource quotas and limits: ensures that resource quotas and limits are set to prevent the resource exhaustion and DdoS attacks
+
+    RBAC: checks of overly permissive roles and role bindings that could grant excessive perissions to a user or service account
+
+    image vulnerabilities: scans the containers images for known vulnerabilities and recommends updates and patches
+
+    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/f74a4e24-8afa-4b5e-b7f9-07afce597815)
+
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
