@@ -5,7 +5,7 @@ kind: Secret
 metadata:
   creationTimestamp: "2024-06-10T02:30:51Z"
   name: docker-cred
-  namespace: default
+  namespace: board-game
   resourceVersion: "247711"
   uid: bbf8937c-7031-4996-82d4-32ca4b57c12c
 type: kubernetes.io/dockerconfigjson
