@@ -199,6 +199,12 @@ It is a good practice to wrap "waitForQualityGate" in a "timeout" block to preve
 
 ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/3332240f-c362-46e7-8479-6e15e5d17c1d)
 
+8. stage to update the image in deployment-service.yaml using "sed" text manipulator
+
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/65912d6b-a8df-4201-a1cc-513888660963)
+
+   
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -350,7 +356,7 @@ Setting up the pipeline for continuous delivery:
 
    2. deployment: deployment is the highest deployable resource in kubernetes that internally creates a replicaset that is actually responsible for  maintaining the desired number of pod replicas all the time.
   
-   3. service (type = load balancer): service is a resource that is used to establish a stabe communication between pods and external network. A service points to the pods through labels
+   3. service (type = NodePort): service is a resource that is used to establish a stabe communication between pods and external network. A service points to the pods through labels
 
       there are 3 types of services
 
@@ -358,6 +364,8 @@ Setting up the pipeline for continuous delivery:
          
       2. NodePort: service maps a port on the pods to a specific idle port ranging form 30000 to 32767 on all the worker nodes establishing the external connectivity to the pods. we can access the application running in the pods over the allocated or chosen node port on IP of any worker node. But with this type of service we are exposing the public IP address of the nodes which is not a best practise to keep the cluster safe.
       3. LoadBalancer : serivce set up everything that it will do for a NodePort and aditionally it deploys a network load balancer in the respective cloud hat exposes just the public ip address of the load balancer and port on t=which we access the application.
+     
+      if we are using GKE that set's up the 
 
 
    The withKubeConfig{} block  suggests we are using Jenkins with a Kubernetes plugin to handle Kubernetes authentication.
