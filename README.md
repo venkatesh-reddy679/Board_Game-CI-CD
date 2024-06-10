@@ -350,7 +350,14 @@ Setting up the pipeline for continuous delivery:
 
    2. deployment: deployment is the highest deployable resource in kubernetes that internally creates a replicaset that is actually responsible for  maintaining the desired number of pod replicas all the time.
   
-   3. service (type = load balancer): service is a resource that is used to establish a stabe communication between pods and external network.
+   3. service (type = load balancer): service is a resource that is used to establish a stabe communication between pods and external network. A service points to the pods through labels
+
+      there are 3 types of services
+
+      1. ClusterIP: service gets an IP from cluster service ip range that is use to establish a stable inter-pod communication within the cluster
+         
+      2. NodePort: service maps a port on the pods to a specific idle port ranging form 30000 to 32767 on all the worker nodes establishing the external connectivity to the pods. we can access the application running in the pods over the allocated or chosen node port on IP of any worker node. But with this type of service we are exposing the public IP address of the nodes which is not a best practise to keep the cluster safe.
+      3. LoadBalancer : serivce set up everything that it will do for a NodePort and aditionally
       
 
 
