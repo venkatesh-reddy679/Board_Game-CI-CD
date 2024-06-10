@@ -391,9 +391,15 @@ Setting up the pipeline for continuous delivery:
       if we are using GKE that set's up the 
 
 
-   The withKubeConfig{} block  suggests we are using Jenkins with a Kubernetes plugin to handle Kubernetes authentication.
+   The withKubeConfig{} block  suggests we are using Jenkins with a Kubernetes plugin to handle Kubernetes authentication. This block configure the kubernetes client which is kubectl by configuring the kubeconfig file on the agent where this pipeline runs. 
 
-   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/3d6df056-0893-4335-9f8c-5c45a08e8d18)
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/37c0db4d-7e9c-4ce7-b9b6-fe9121d61d29)
+
+
+2. stage to verify the delivery and audit the cluster resources. "Kubeaudit all" command audit all the available resources in the specified namespace
+
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/ccc9427a-a962-431c-8fff-35293c2ae688)
+
 
       
 
