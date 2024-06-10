@@ -357,7 +357,13 @@ Setting up the pipeline for continuous delivery:
       1. ClusterIP: service gets an IP from cluster service ip range that is use to establish a stable inter-pod communication within the cluster
          
       2. NodePort: service maps a port on the pods to a specific idle port ranging form 30000 to 32767 on all the worker nodes establishing the external connectivity to the pods. we can access the application running in the pods over the allocated or chosen node port on IP of any worker node. But with this type of service we are exposing the public IP address of the nodes which is not a best practise to keep the cluster safe.
-      3. LoadBalancer : serivce set up everything that it will do for a NodePort and aditionally
+      3. LoadBalancer : serivce set up everything that it will do for a NodePort and aditionally it deploys a network load balancer in the respective cloud hat exposes just the public ip address of the load balancer and port on t=which we access the application.
+
+
+   The withKubeConfig{} block  suggests we are using Jenkins with a Kubernetes plugin to handle Kubernetes authentication.
+
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/3d6df056-0893-4335-9f8c-5c45a08e8d18)
+
       
 
 
