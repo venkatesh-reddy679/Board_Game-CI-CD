@@ -340,7 +340,7 @@ Authentication and Authorization in kubernetes cluster:
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/f8604424-0c90-438c-8c65-9f7b3dc502c2)
 
-8. install Kubeaudit
+8. install Kubeaudit on machine where the pipeline runs
 
    kubeaudit is a command line tool used to audit kubernetes clusters for security compliance. It helps us identity potential security isues and misconfigurations in kubernetes resources.
 
