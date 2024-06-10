@@ -297,11 +297,22 @@ Authentication and Authorization in kubernetes cluster:
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/25fe2686-cd61-433c-9832-5a53c8dfa8b0)
 
    
-1. create a new service account to authenticate jenkins with kube-apiserver and create a token using token api
+1. create a new service account to authenticate jenkins with kube-apiserver and create a token using token api but validity of this token is just 1 hour
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/1ca27955-fdfa-4195-93c9-b7e3f8cc5ac8)
+
+   we can even create a long-lived token by creating a secret of type "service-account-token"
+
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/a406f90b-194d-40a6-a18d-414a6433adcb)
+
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/c7d62a43-73bd-471c-8ba7-f27785c4b6e2)
+
+   decoding the encoded token using base64 and store it as secret text global credential in jenkins server
    
-2. create a role wth necessary permissions and bind it to the service account using role binding  to authorize jekins with kube-apiserver to do the deployments in the kuberetes cluster.
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/59e55fb7-49b1-43a7-95cf-a0d7efd9c543)
+
+   
+3. create a role wth necessary permissions and bind it to the service account using role binding  to authorize jekins with kube-apiserver to do the deployments in the kuberetes cluster.
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/1ad6e242-9532-4b55-a2e7-8e26a2d90f25)
 
@@ -310,7 +321,7 @@ Authentication and Authorization in kubernetes cluster:
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/7b742bcf-0193-4729-a404-21dc20001144)
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/f6c41ea3-122c-4884-8fb8-33f6dc155cd9)
-3. test the service account is able to deploy the resources only in the defined namespace not in any other namespace
+4. test the service account is able to deploy the resources only in the defined namespace not in any other namespace
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/549e65c0-3cd1-4351-b08b-f87cdf2ac696)
 
