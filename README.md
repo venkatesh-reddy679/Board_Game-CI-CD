@@ -321,9 +321,15 @@ Authentication and Authorization in kubernetes cluster:
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/7b742bcf-0193-4729-a404-21dc20001144)
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/f6c41ea3-122c-4884-8fb8-33f6dc155cd9)
-4. test the service account is able to deploy the resources only in the defined namespace not in any other namespace
+   
+5. test the service account is able to deploy the resources only in the defined namespace not in any other namespace
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/549e65c0-3cd1-4351-b08b-f87cdf2ac696)
+
+6. store the token as global credential of type secret text in jenkins server
+
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/90364b41-0613-433f-9ccf-a9b3d7565086)
+
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -331,6 +337,8 @@ Authentication and Authorization in kubernetes cluster:
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+Setting up the pipeline for continuous delivery:
 
 
 
