@@ -1,17 +1,3 @@
-apiVersion: v1
-data:
-  .dockerconfigjson: eyJhdXRocyI6eyJkb2NrZXIuaW8iOnsidXNlcm5hbWUiOiJ2ZW5rYXRlc2hyZWRkeTY3OSIsInBhc3N3b3JkIjoiVmVua3kyQFNwaWR5IiwiZW1haWwiOiJ2ZW5rYXRlc2gucmVkZHk2NzlAZ21haWwuY29tIiwiYXV0aCI6ImRtVnVhMkYwWlhOb2NtVmtaSGsyTnprNlZtVnVhM2t5UUZOd2FXUjUifX19
-kind: Secret
-metadata:
-  creationTimestamp: "2024-06-10T02:30:51Z"
-  name: docker-cred
-  namespace: board-game
-  resourceVersion: "247711"
-  uid: bbf8937c-7031-4996-82d4-32ca4b57c12c
-type: kubernetes.io/dockerconfigjson
-
----
-
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
