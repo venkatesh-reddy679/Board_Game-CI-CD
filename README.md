@@ -464,6 +464,9 @@ setting up infrastructure for monitoring:
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/7c918af9-d29c-449a-b149-f42ddb9d31a1)
 
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/17adeb98-a579-457b-921d-515724e06413)
+
+
    
 
 
