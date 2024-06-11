@@ -458,6 +458,16 @@ setting up infrastructure for monitoring:
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/c6d57e2c-8b9d-4131-9dfe-2d63a9511044)
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/74872c46-ef26-4b1b-ad6a-3ba4d0f204ed)
 
+5. NodeExporter: The Node Exporter is a Prometheus exporter for hardware and Operating System (OS) metrics exposed by *nix kernels. It is used to collect and expose a wide range of system metrics such as CPU usage, memory usage, disk I/O, network statistics, and more, which are essential for monitoring the health and performance of servers. Node exporter shoul be installed on target server and should be running in the background
+
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/2d1ab478-d00c-42c7-b80b-8cbea59c0262)
+
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/7c918af9-d29c-449a-b149-f42ddb9d31a1)
+
+   
+
+
+
 
 
 
