@@ -458,13 +458,28 @@ setting up infrastructure for monitoring:
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/c6d57e2c-8b9d-4131-9dfe-2d63a9511044)
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/74872c46-ef26-4b1b-ad6a-3ba4d0f204ed)
 
-5. NodeExporter: The Node Exporter is a Prometheus exporter for hardware and Operating System (OS) metrics exposed by *nix kernels. It is used to collect and expose a wide range of system metrics such as CPU usage, memory usage, disk I/O, network statistics, and more, which are essential for monitoring the health and performance of servers. Node exporter shoul be installed on target server and should be running in the background
+5. NodeExporter: The Node Exporter is a Prometheus exporter for hardware and Operating System (OS) metrics exposed by *nix kernels. It is used to collect and expose a wide range of system metrics such as CPU usage, memory usage, disk I/O, network statistics, and more, which are essential for monitoring the health and performance of servers. Node exporter shoul be installed on target server and should be running in the background. Install prometheus metrics plugin in the jenkins server
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/2d1ab478-d00c-42c7-b80b-8cbea59c0262)
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/7c918af9-d29c-449a-b149-f42ddb9d31a1)
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/17adeb98-a579-457b-921d-515724e06413)
+
+6. update the prometheus.yml with node exporter and jenkins job, restart the prometheus
+
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/a4a34916-4dab-45f3-b9a4-c15c94d05ca8)
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/d4001fc7-5e32-4311-bf58-d0b761798de9)
+
+7. search for prometheus node_exporter dashboard, copy the ID, then click on import dashboard and load the ID in grafana and select prometheus datasource
+
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/5885e80a-1e7b-40c6-86e4-17a7ceaeeb1f)
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/efc7f0cc-0d68-4b76-8726-d4e2e2fe822e)
+
+   
+
+
+
 
 
    
