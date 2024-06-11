@@ -400,6 +400,37 @@ Setting up the pipeline for continuous delivery:
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/ccc9427a-a962-431c-8fff-35293c2ae688)
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+setting up infrastructure for monitoring:
+
+1. prometheus: prometheus is an open-source systems monitoring and alerting toolkit designed for reliability and scalability, espicially in cloud-native environemrnts and microservices architecture.
+
+   How prometheus works:
+
+   1. scraping: prometheus collects the metrics by sending an HTTP rrequest to the target that exposes the application or sytem metrics.
+      
+   2. storage: collected metrics are stored locally in the promethus server in time-series database
+      
+   3. querying: users can query the stored time-series data using promQL, a powerful query laguage to generat real-time insights, create dashboards in Grafana,an open-source visualization tool, create alerts to send notification using integrated notification manager like mail, slack or pagerDuy when a specific condition is met.
+
+   use cases of prometheus:
+
+   1. monitor the performance and health of an application
+   2. monitor thr server, conainers, and other cloud resources
+   3. idle for dynamic environments like kubernetes, where services can come and go frequently
+   4. define alerts for abnormal conditions and respond in real-time
+  
+   Exporters: exporters are the components of prometheus architecture that expose the existing metrics from the third-party systems as prometheus metrics. NodeExporter is used to expose the system metrics and blackbox exporter is used for blackbox probing.
+
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/9fd2a9f2-fc9c-4237-ab41-ebcba62d7621)
+
+
+   
+
 
       
 
