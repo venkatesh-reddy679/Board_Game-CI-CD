@@ -411,10 +411,8 @@ setting up infrastructure for monitoring:
 
    How prometheus works:
 
-   1. scraping: prometheus collects the metrics by sending an HTTP rrequest to the target that exposes the application or sytem metrics.
-      
+   1. scraping: prometheus collects the metrics by sending an HTTP rrequest to the target that exposes the application or sytem metrics.      
    2. storage: collected metrics are stored locally in the promethus server in time-series database
-      
    3. querying: users can query the stored time-series data using promQL, a powerful query laguage to generat real-time insights, create dashboards in Grafana,an open-source visualization tool, create alerts to send notification using integrated notification manager like mail, slack or pagerDuy when a specific condition is met.
 
    use cases of prometheus:
@@ -427,6 +425,10 @@ setting up infrastructure for monitoring:
    Exporters: exporters are the components of prometheus architecture that expose the existing metrics from the third-party systems as prometheus metrics. NodeExporter is used to expose the system metrics and blackbox exporter is used for blackbox probing.
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/9fd2a9f2-fc9c-4237-ab41-ebcba62d7621)
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/855d5034-c03d-48b0-9429-ba5520b09681)
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/647958a6-1018-44da-8354-501313a1ddbd)
+
+
 
 
    
