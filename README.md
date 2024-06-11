@@ -448,6 +448,18 @@ setting up infrastructure for monitoring:
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/65a3e7cc-a18f-4c56-bba1-598c2cb58acd)
 
 
+4. we can add prometheus as a datasource to grafana and grafana uses data source native query language like promQL for prometheus to query the metrics and visualize them.
+
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/562f30b5-3bab-4868-a4d4-6029241118bf)
+
+   after adding the data source, search for prometheus blackbox exporter dashboards in google  and copy the id, then in grafana, go to import dashboard, paste the
+ ID of the dashboard and select the prometheus data source and click on import.
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/594ff7e3-b39e-4411-8c70-b3861aca7ddd)
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/c6d57e2c-8b9d-4131-9dfe-2d63a9511044)
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/74872c46-ef26-4b1b-ad6a-3ba4d0f204ed)
+
+
+
 
 
 
