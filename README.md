@@ -429,6 +429,15 @@ setting up infrastructure for monitoring:
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/647958a6-1018-44da-8354-501313a1ddbd)
 
 
+2. Grafana: Grafana is an open-source platform for monitoring, visualization, and analysis of data. It enables users to query, visualize, and alert on metrics and logs no matter where they are stored. Grafana supports multiple data sources, including Prometheus, Graphite, InfluxDB, Elasticsearch, and many others, making it highly versatile and flexible for integrating various data streams.
+
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/6a1eb7d1-66bd-470b-a535-6c718ee30e22)
+   
+
+
+
+
+
 
 
    
