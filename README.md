@@ -440,6 +440,17 @@ setting up infrastructure for monitoring:
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/a1253187-1cec-4c49-8bd1-d5b6d336f607)
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/25eb5931-ab9b-4c72-a9c2-6d1652e5ea36)
 
+   Copy the blackbox exporter job from "https://github.com/prometheus/blackbox_exporter", stop the prometheus server, update the prometheus.yml file with the blackbox exporter job, update the necessary blackbox exporter server url and target url, and start the prometheus.
+
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/c0ea3063-0828-4945-ba12-b3aa5a5a14f2)
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/2b5a8a23-4737-46e6-8dd5-5a693919a1f3)
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/4b93651d-dfc8-4ed0-af5a-4352723ceb43)
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/65a3e7cc-a18f-4c56-bba1-598c2cb58acd)
+
+
+
+
+
 
 
    
