@@ -432,6 +432,18 @@ setting up infrastructure for monitoring:
 2. Grafana: Grafana is an open-source platform for monitoring, visualization, and analysis of data. It enables users to query, visualize, and alert on metrics and logs no matter where they are stored. Grafana supports multiple data sources, including Prometheus, Graphite, InfluxDB, Elasticsearch, and many others, making it highly versatile and flexible for integrating various data streams.
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/6a1eb7d1-66bd-470b-a535-6c718ee30e22)
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/c6a271c7-6f8c-4e0f-8df8-48b1a420ad2b)
+
+3. Balckbox Exporter: The Blackbox Exporter is a Prometheus exporter that allows you to probe endpoints over various protocols such as HTTP, HTTPS, DNS, TCP, ICMP (ping), and more. It is primarily used for blackbox monitoring, which involves checking the availability and performance of a service from an external perspective without requiring any instrumentation of the service itself.
+
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/077ae760-31ba-4624-865d-7a9368db3d49)
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/a1253187-1cec-4c49-8bd1-d5b6d336f607)
+   ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/25eb5931-ab9b-4c72-a9c2-6d1652e5ea36)
+
+
+
+   
+
    
 
 
