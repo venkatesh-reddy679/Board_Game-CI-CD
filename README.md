@@ -454,11 +454,14 @@ setting up infrastructure for monitoring:
 
    after adding the data source, search for prometheus blackbox exporter dashboards in google  and copy the id, then in grafana, go to import dashboard, paste the
  ID of the dashboard and select the prometheus data source and click on import.
+
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/594ff7e3-b39e-4411-8c70-b3861aca7ddd)
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/c6d57e2c-8b9d-4131-9dfe-2d63a9511044)
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/74872c46-ef26-4b1b-ad6a-3ba4d0f204ed)
 
-5. NodeExporter: The Node Exporter is a Prometheus exporter for hardware and Operating System (OS) metrics exposed by *nix kernels. It is used to collect and expose a wide range of system metrics such as CPU usage, memory usage, disk I/O, network statistics, and more, which are essential for monitoring the health and performance of servers. Node exporter shoul be installed on target server and should be running in the background. Install prometheus metrics plugin in the jenkins server
+6. Node_Exporter: The Node Exporter is a Prometheus exporter for hardware and Operating System (OS) metrics exposed by *nix kernels. It is used to collect and expose a wide range of system metrics such as CPU usage, memory usage, disk I/O, network statistics, and more, which are essential for monitoring the health and performance of servers. Node exporter shoul be installed on target server and should be running in the background.
+
+   using Node_exporter, we are going to monitor the system metrics of jenkins server. Install "prometheus metrics" plugin in the jenkins server
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/2d1ab478-d00c-42c7-b80b-8cbea59c0262)
 
@@ -466,12 +469,12 @@ setting up infrastructure for monitoring:
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/17adeb98-a579-457b-921d-515724e06413)
 
-6. update the prometheus.yml with node exporter and jenkins job, restart the prometheus
+7. update the prometheus.yml on monitor server with node_exporter and jenkins job, restart the prometheus
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/a4a34916-4dab-45f3-b9a4-c15c94d05ca8)
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/d4001fc7-5e32-4311-bf58-d0b761798de9)
 
-7. search for prometheus node_exporter dashboard, copy the ID, then click on import dashboard and load the ID in grafana and select prometheus datasource
+8. to visualize the metrics collected by node_exporter from jenkins server that are stored as time series data in prometheus server locally, search for prometheus node_exporter dashboard in google, copy the ID, then click on import dashboard and load the ID in grafana and select prometheus datasource
 
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/5885e80a-1e7b-40c6-86e4-17a7ceaeeb1f)
    ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/efc7f0cc-0d68-4b76-8726-d4e2e2fe822e)
