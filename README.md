@@ -1,3 +1,6 @@
+![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/f27b4ac2-6fb4-4aa3-ad6e-7f395348e21e)
+
+
 Setting up the infrastructure for Continuous Integration:
 1. jenkins server (port 8080)
 2. sonarqube server (port 9000)
