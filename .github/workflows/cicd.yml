@@ -75,4 +75,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: venkateshreddy679/github-action-boardgame:${{ github.rub_number }}
+          tags: venkateshreddy679/github-action-boardgame:${{ github.run_number }}
