@@ -15,10 +15,6 @@ jobs:
         run: |
           java -version
           mvn --version
-      - name: set artifact version
-        run: |
-          mvn versions:set -DnewVersion=${GITHUB_RUN_NUMBER}
-          cat pom.xml
       - name: compile
         run: mvn clean compile
         continue-on-error: true
