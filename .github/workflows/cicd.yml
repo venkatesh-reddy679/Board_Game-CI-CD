@@ -18,3 +18,28 @@ jobs:
       - name: compile
         run: mvn clean compile
         continue-on-error: true
+  security_check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: trivy installation
+        run: |
+          sudo apt-get install wget gnupg
+          wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null
+          echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb generic main" | sudo tee -a /etc/apt/sources.list.d/trivy.list
+          sudo apt-get update
+          sudo apt-get install trivy
+      - name: filesystem-scan
+        run: trivy fs --format=table -o filescan.json .
+      - name: gitleaks installation
+        run: sudo apt update && apt install -y gitleaks
+      - name: gitleaks scan
+        run: gitleaks detect source . -r 
+      - name: publish trivy filescan & gitleaks report
+        uses: actions/upload-artifact@v4
+        with:
+          name: security
+          path: "*.json"
+        
+          
+      
+      
