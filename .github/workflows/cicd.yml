@@ -12,16 +12,9 @@ jobs:
   job-one:
     runs-on: ubuntu-latest
     steps:
-      - name: test-step
-        run: |
-          echo $GITHUB_REF
-          echo $GITHUB_ACTOR
-          echo $GITHUB_WORKFLOW
-          echo $GITHUB_SHA
-          echo $GITHUB_WORKSPACE
-          echo $GITHUB_WORKSACE
       - uses: actions/checkout@v4
         name: checkout
-      - name: list files
-        run: java -version
-
+      - name: check java and mvn version
+        run: |
+          java -version
+          mvn version
