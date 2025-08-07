@@ -20,4 +20,8 @@ jobs:
           echo $GITHUB_SHA
           echo $GITHUB_WORKSPACE
           echo $GITHUB_WORKSACE
+      - uses: actions/checkout@v4
+        name: checkout
+      - name: list files
+        run: ls -al
 
