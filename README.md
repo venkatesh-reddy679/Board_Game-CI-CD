@@ -1,3 +1,5 @@
+[![github actions learning](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/actions/workflows/cicd.yml/badge.svg?branch=main)](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/actions/workflows/cicd.yml)
+
 ![image](https://github.com/venkatesh-reddy679/Board_Game-CI-CD/assets/60383183/f27b4ac2-6fb4-4aa3-ad6e-7f395348e21e)
 
 
