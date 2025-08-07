@@ -20,7 +20,6 @@ jobs:
         continue-on-error: true
   security_check:
     runs-on: ubuntu-latest
-    needs: compile
     steps:
       - uses: actions/checkout@v4
         name: checkout
@@ -36,13 +35,20 @@ jobs:
       - name: gitleaks installation
         run: sudo apt update && sudo apt install -y gitleaks
       - name: gitleaks scan
-        run: gitleaks detect --source . --report-format=json --report-path=gitleaks.json 
+        run: | 
+          gitleaks detect --source . --report-format=json --report-path=gitleaks.json 
       - name: publish trivy filescan & gitleaks report
         uses: actions/upload-artifact@v4
         with:
           name: security
           path: "*.json"
-        
+      - name: gitleaks validation
+        run: |
+          if [[ -f gitleaks.json && jq -e '.Findings | length > 0' gitleaks.json > /dev/null ]];then
+            echo "gitleaks detected sensitive data, please refer to the uploaded gitleaks.json"
+            exit 1
+          else
+            echo "gitleaks found 0 sensitive data"
           
       
       
