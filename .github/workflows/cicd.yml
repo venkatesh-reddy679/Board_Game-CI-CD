@@ -9,12 +9,14 @@ env:
   name: "venky"
 
 jobs:
-  job-one:
+  compile:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         name: checkout
-      - name: check java and mvn version
+      - name: check java and mvn versions
         run: |
           java -version
-          mvn version
+          mvn --version
+      - name: compile
+        run: mvn clean compile
