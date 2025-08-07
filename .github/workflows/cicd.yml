@@ -50,6 +50,14 @@ jobs:
           else
             echo "gitleaks found 0 sensitive data, HAPPY WORKING"
           fi
-          
-      
-      
+  build:
+    runs-on: ubuntu-latest
+    needs: compile
+    if: github.ref == "refs/heads/main" || github.ref == "refs/heads/dev"
+    steps:
+      - uses: actions/checkout@v4
+        name: checkout
+      - name: maven build
+        run: mvn clean package
+      - name: docker version check
+        run: docker --version
