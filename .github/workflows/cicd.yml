@@ -34,7 +34,7 @@ jobs:
       - name: gitleaks installation
         run: sudo apt update && sudo apt install -y gitleaks
       - name: gitleaks scan
-        run: gitleaks detect source . -r 
+        run: gitleaks detect --source . --report-format=json --report-path=gitleaks.json 
       - name: publish trivy filescan & gitleaks report
         uses: actions/upload-artifact@v4
         with:
