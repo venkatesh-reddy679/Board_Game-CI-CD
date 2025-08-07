@@ -23,5 +23,5 @@ jobs:
       - uses: actions/checkout@v4
         name: checkout
       - name: list files
-        run: ls -al
+        run: java -version
 
