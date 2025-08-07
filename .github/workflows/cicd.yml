@@ -44,11 +44,12 @@ jobs:
           path: "*.json"
       - name: gitleaks validation
         run: |
-          if [[ -f gitleaks.json && jq -e '.Findings | length > 0' gitleaks.json > /dev/null ]];then
+          if jq -e '.Findings | length > 0' gitleaks.json > /dev/null;then
             echo "gitleaks detected sensitive data, please refer to the uploaded gitleaks.json"
             exit 1
           else
-            echo "gitleaks found 0 sensitive data"
+            echo "gitleaks found 0 sensitive data, HAPPY WORKING"
+          fi
           
       
       
