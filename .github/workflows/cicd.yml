@@ -1,11 +1,21 @@
 name: github actions learning
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
       - dev
 
 jobs:
+  context:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    timeout-minutes: 2
+    steps:
+      - name: github context
+        env:
+          github_context: ${{ toJson(github) }}
+        run: echo ${{ env.github_context }}
   compile:
     runs-on: ubuntu-latest
     steps:
@@ -80,3 +90,4 @@ jobs:
           context: .
           push: true
           tags: venkateshreddy679/github-action-boardgame:${{ github.run_number }}
+      
