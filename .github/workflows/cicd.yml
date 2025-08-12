@@ -11,6 +11,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         name: checkout
+      - uses: actions/setup-java@v4
+        with:
+         distribution: 'zulu'
+         java-version: '17'
       - name: check java and mvn versions
         run: |
           java -version
