@@ -5,6 +5,9 @@ on:
     branches:
       - main
       - dev
+    paths-ignore:
+      - .github/workflows/cicd.yaml
+      - ECS/task-definition.json
 
 jobs:
   context:
