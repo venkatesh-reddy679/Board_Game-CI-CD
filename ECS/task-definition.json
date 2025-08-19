@@ -1,0 +1,36 @@
+{
+    "family": "board-game",
+    "networkMode": "awsvpc",
+    "requiredCapabilities": ["fargate"],
+    "taskRoleArn": "",
+    "executionRoleArn": "",
+    "cpu": 512,
+    "memory": 1024,
+    "containerDefinitions": [
+        {
+            "name" : "board-game",
+            "image": "",
+            "essential": true,
+            "cpu": 512,
+            "memory": 1024,
+            "portMappings": [
+                {
+                    "containerPort": 80,
+                    "hostPort": 80,
+                    "protocol": "TCP",
+                    "name":"http"
+                }
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/board-game",
+                    "awslogs-group-create": true,
+                    "awslogs-region": "ca-central-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ]
+
+}
