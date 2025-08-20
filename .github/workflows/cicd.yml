@@ -94,6 +94,11 @@ jobs:
         uses: restackio/update-json-file-action@2.1
         with:
           file: ECS/task-definition.json
-          fields: "{'.containerDefinitions[0].image': 'ghcr.io/${{ github.repository }}:${{ github.run_number }}','.taskRoleArn': '${{ secrets.ecs_role }}','executionRoleArn': '${{ secrets.ecs_role }}'}"
+          fields: |
+            {
+                ".containerDefinitions[0].image": "ghcr.io/${{ github.repository }}:${{ github.run_number }}",
+                ".taskRoleArn": "${{ secrets.ecs_role }}",
+                "executionRoleArn": "${{ secrets.ecs_role }}"
+            }
       - run: cat ECS/task-definition.json
       
