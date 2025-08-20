@@ -89,11 +89,11 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/venkatesh-reddy679/boardgame:${{ github.run_number }}
+          tags: ghcr.io/${{ github.repository }}:${{ github.run_number }}
       - name: update task-definition.json
         uses: restackio/update-json-file-action@2.1
         with:
           file: ECS/task-definition.json
-          fields: "{'.containerDefinitions[0].image': 'ghcr.io/venkatesh-reddy679/boardgame:${{ github.run_number }}','.taskRoleArn': '${{ secrets.ecs-role }}','executionRoleArn': '${{ secrets.ecs-role }}',}"
+          fields: "{'.containerDefinitions[0].image': 'ghcr.io/${{ github.repository }}:${{ github.run_number }}','.taskRoleArn': '${{ secrets.ecs_role }}','executionRoleArn': '${{ secrets.ecs_role }}'}"
       - run: cat ECS/task-definition.json
       
