@@ -4,21 +4,17 @@ on:
   push:
     branches:
       - main
-      - dev
     paths-ignore:
-      - .github/workflows/cicd.yaml
-      - ECS/task-definition.json
+      - 'ECS/task-definition.json'
+      - '.github/workflows/**'
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - 'ECS/task-definition.json'
+      - '.github/workflows/**'
 
 jobs:
-  context:
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    timeout-minutes: 2
-    steps:
-      - name: github context
-        env:
-          github_context: ${{ toJson(github) }}
-        run: echo ${{ env.github_context }}
   compile:
     runs-on: ubuntu-latest
     steps:
@@ -81,8 +77,9 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ vars.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          registry: ghcr.io
+          username: ${{ vars.DOCKER_REGISTRY_USERNAME }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
@@ -92,5 +89,11 @@ jobs:
         with:
           context: .
           push: true
-          tags: venkateshreddy679/github-action-boardgame:${{ github.run_number }}
+          tags: ghcr.io/venkatesh-reddy679/boardgame:${{ github.run_number }}
+      - name: update task-definition.json
+        uses: restackio/update-json-file-action@2.1
+        with:
+          file: ECS/task-definition.json
+          fields: "{'.containerDefinitions[0].image': 'ghcr.io/venkatesh-reddy679/boardgame:${{ github.run_number }}','.taskRoleArn': '${{ secrets.ecs-role }}','executionRoleArn': '${{ secrets.ecs-role }}',}"
+      - run: cat ECS/task-definition.json
       
