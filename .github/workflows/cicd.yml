@@ -5,18 +5,19 @@ on:
     branches:
       - main
     paths-ignore:
-      - 'ECS/task-definition.json'
+      - 'ECS/**'
       - '.github/workflows/**'
   pull_request:
     branches:
       - main
     paths-ignore:
-      - 'ECS/task-definition.json'
+      - 'ECS/**'
       - '.github/workflows/**'
 
 jobs:
   compile:
     runs-on: ubuntu-latest
+    continue-on-error: false
     steps:
       - uses: actions/checkout@v4
         name: checkout
@@ -33,6 +34,7 @@ jobs:
         continue-on-error: true
   security_check:
     runs-on: ubuntu-latest
+    continue-on-error: false
     steps:
       - uses: actions/checkout@v4
         name: checkout
@@ -66,6 +68,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     needs: compile
+    continue-on-error: false
     if: github.ref_name == 'main' || github.ref_name == 'dev'
     steps:
       - uses: actions/checkout@v4
@@ -90,6 +93,15 @@ jobs:
           context: .
           push: true
           tags: ghcr.io/${{ github.repository }}:${{ github.run_number }}
+  deploy:
+    needs: ["build","security_check"]
+    runs-on: ubuntu-latest
+    continue-on-error: false
+    environment:
+      name: production
+    steps:
+      - uses: actions/checkout@v4
+        name: checkout
       - name: update task-definition.json
         uses: restackio/update-json-file-action@2.1
         with:
@@ -100,10 +112,29 @@ jobs:
                 "taskRoleArn": "${{ secrets.ecs_role }}",
                 "executionRoleArn": "${{ secrets.ecs_role }}"
             }
-      - run: cat ECS/task-definition.json
       - name: aws configuration
         uses: aws-actions/configure-aws-credentials@v3
         with:
           aws-region: ${{ secrets.region }}
-          role-to-assume:${{ secrets.}}
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+      - name: register task definition revision
+        run: |
+         taskDefinition_ARN=$(aws ecs register-task-definition --cli-input-json=file://ECS/task-definition.json --region=${{ secrets.region }} --output=text --query="taskdefinition.taskDefinitionArn")
+         echo "taskDefinitionARN=$taskDefinition_ARN" >> $GITHUB_ENV
+      - name: update appspec.json
+        uses: restackio/update-json-file-action@2.1
+        with:
+          file: ECS/appspec.json
+          fields: |
+            {
+              "Resources[0].TargetService.Properties.TaskDefinition": "$taskDefinitionARN" 
+            }
+      - name: create codedeploy revision
+        run: |
+          deploymentID=$(aws deploy create-deployment --region=${{ secrets.region }} --application-name=${{ secrets.codeDeployName }} --deployment-group-name=${{ secrets.deploymentGroupName }} --revision=file://ECS/appspec.json --output=text --query="deploymentId")
+          echo "deployment ID: ${deploymentID}"
+          echo "deploymentID=$deploymentID" >> $GITHUB_ENV
+      - name: wait for deployment completion
+        run: |
+          aws deploy wait deployment-successful --deployment-id=${deploymentID} --region=${{ secrets.region }}
       
