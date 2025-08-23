@@ -108,9 +108,12 @@ jobs:
           file: ECS/task-definition.json
           fields: |
             {
-                "containerDefinitions[0].image": "ghcr.io/${{ github.repository }}:${{ github.run_number }}",
                 "taskRoleArn": "${{ secrets.ecs_role }}",
-                "executionRoleArn": "${{ secrets.ecs_role }}"
+                "executionRoleArn": "${{ secrets.ecs_role }}",
+                "containerDefinitions[0].image": "ghcr.io/${{ github.repository }}:${{ github.run_number }}",
+                "containerDefinitions[0].repositoryCredentials.credentialsParameter": "${{ secrets.AWS_GHCR_CREDENTIALS_SECRET }}",
+                "containerDefinitions[0].logConfiguration.options.awslogs-group": "${{ vars.logGroupName}}",
+                "ontainerDefinitions[0].logConfiguration.options.loggroup-region": "${{ secrets.region }}"
             }
       - name: aws configuration
         uses: aws-actions/configure-aws-credentials@v3
