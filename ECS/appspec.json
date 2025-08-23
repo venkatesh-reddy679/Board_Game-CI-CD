@@ -1,16 +1,23 @@
 {
-  "Version": "0.1",
+  "version": "0.0",
   "Resources": [
     {
       "TargetService": {
-        "Type": "AWS:ECS:Service",
-        "Properties":{
-          "TaskDefinition": "",
-          "LoadBalancerInfo":{
+        "Type": "AWS::ECS::Service",
+        "Properties": {
+          "TaskDefinition": "<arn-of-the-new-task-definition>",
+          "LoadBalancerInfo": {
             "ContainerName": "board-game",
-            "ContainerPort": "80"
+            "ContainerPort": 80
+          },
+          "PlatformVersion": "LATEST"
         }
       }
+    }
+  ],
+  "Hooks": [
+    {
+      "AfterAllowTestTraffic": "<name of lambda function to be executed after test traffic is shifted to target group associates with the replacement task set>"
     }
   ]
 }
