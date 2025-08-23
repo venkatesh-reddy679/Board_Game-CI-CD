@@ -1,0 +1,16 @@
+{
+  "Version": "0.1",
+  "Resources": [
+    {
+      "TargetService": {
+        "Type": "AWS:ECS:Service",
+        "Properties":{
+          "TaskDefinition": "",
+          "LoadBalancerInfo":{
+            "ContainerName": "board-game",
+            "ContainerPort": "80"
+        }
+      }
+    }
+  ]
+}
