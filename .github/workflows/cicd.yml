@@ -115,6 +115,7 @@ jobs:
                 "containerDefinitions[0].logConfiguration.options.awslogs-group": "${{ vars.logGroupName}}",
                 "ontainerDefinitions[0].logConfiguration.options.loggroup-region": "${{ secrets.region }}"
             }
+      - run: cat ECS/task-definition.json
       - name: aws configuration
         uses: aws-actions/configure-aws-credentials@v3
         with:
