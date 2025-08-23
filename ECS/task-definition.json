@@ -27,9 +27,9 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/board-game",
+                    "awslogs-group": "",
                     "awslogs-group-create": true,
-                    "awslogs-region": "ca-central-1",
+                    "awslogs-region": "",
                     "awslogs-stream-prefix": "ecs"
                 }
             }
@@ -38,3 +38,4 @@
 
 
 }
+
