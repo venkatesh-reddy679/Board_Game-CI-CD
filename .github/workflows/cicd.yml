@@ -101,4 +101,9 @@ jobs:
                 "executionRoleArn": "${{ secrets.ecs_role }}"
             }
       - run: cat ECS/task-definition.json
+      - name: aws configuration
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-region: ${{ secrets.region }}
+          role-to-assume:${{ secrets.}}
       
